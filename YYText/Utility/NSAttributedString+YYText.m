@@ -988,7 +988,7 @@ return style. _attr_;
 }
 
 - (void)yy_setColor:(UIColor *)color range:(NSRange)range {
-    [self yy_setAttribute:(id)kCTForegroundColorAttributeName value:(id)color.CGColor range:range];
+    [self yy_setAttribute:(id)kCTForegroundColorAttributeName value:(id)color range:range];
     [self yy_setAttribute:NSForegroundColorAttributeName value:color range:range];
 }
 
@@ -1001,7 +1001,7 @@ return style. _attr_;
 }
 
 - (void)yy_setStrokeColor:(UIColor *)strokeColor range:(NSRange)range {
-    [self yy_setAttribute:(id)kCTStrokeColorAttributeName value:(id)strokeColor.CGColor range:range];
+    [self yy_setAttribute:(id)kCTStrokeColorAttributeName value:(id)strokeColor range:range];
     [self yy_setAttribute:NSStrokeColorAttributeName value:strokeColor range:range];
 }
 
@@ -1026,7 +1026,7 @@ return style. _attr_;
 }
 
 - (void)yy_setUnderlineColor:(UIColor *)underlineColor range:(NSRange)range {
-    [self yy_setAttribute:(id)kCTUnderlineColorAttributeName value:(id)underlineColor.CGColor range:range];
+    [self yy_setAttribute:(id)kCTUnderlineColorAttributeName value:(id)underlineColor range:range];
     if (kSystemVersion >= 7) {
         [self yy_setAttribute:NSUnderlineColorAttributeName value:underlineColor range:range];
     }
