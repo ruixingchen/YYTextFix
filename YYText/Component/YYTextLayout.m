@@ -697,7 +697,11 @@ dispatch_semaphore_signal(_lock);
                     CGFloat fontSize = font ? CTFontGetSize(font) : 12.0;
                     UIFont *uiFont = [UIFont systemFontOfSize:fontSize * 0.9];
                     if (uiFont) {
-                        font = CTFontCreateWithName((__bridge CFStringRef)uiFont.fontName, uiFont.pointSize, NULL);
+                        if ([uiFont.fontName isEqualToString:@".SFUI-Regular"]) {
+                            font = CTFontCreateWithName((__bridge CFStringRef)uiFont.fontName, uiFont.pointSize, NULL);
+                        }else {
+                            font = CTFontCreateWithName((__bridge CFStringRef)uiFont.fontName, uiFont.pointSize, NULL);
+                        }
                     } else {
                         font = NULL;
                     }
