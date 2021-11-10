@@ -500,6 +500,16 @@ static dispatch_queue_t YYLabelGetReleaseQueue() {
     return [_innerLayout.text yy_plainTextForRange:_innerLayout.text.yy_rangeOfAll];
 }
 
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+    [super traitCollectionDidChange:previousTraitCollection];
+    if (@available(iOS 13.0, *)) {
+        if ([self.traitCollection hasDifferentColorAppearanceComparedToTraitCollection:previousTraitCollection]) {
+            [self.layer setNeedsDisplay];
+            [self.layer displayIfNeeded];
+        }
+    }
+}
+
 #pragma mark - NSCoding
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
