@@ -697,8 +697,9 @@ dispatch_semaphore_signal(_lock);
                     CGFloat fontSize = font ? CTFontGetSize(font) : 12.0;
                     UIFont *uiFont = [UIFont systemFontOfSize:fontSize * 0.9];
                     if (uiFont) {
+                        //这里修复一下字体获取的问题
                         if ([uiFont.fontName isEqualToString:@".SFUI-Regular"]) {
-                            font = CTFontCreateWithName((__bridge CFStringRef)uiFont.fontName, uiFont.pointSize, NULL);
+                            font = CTFontCreateUIFontForLanguage(kCTFontUIFontSystem, uiFont.pointSize, nil);
                         }else {
                             font = CTFontCreateWithName((__bridge CFStringRef)uiFont.fontName, uiFont.pointSize, NULL);
                         }
