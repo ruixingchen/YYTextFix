@@ -503,10 +503,8 @@ static dispatch_queue_t YYLabelGetReleaseQueue() {
 - (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
     [super traitCollectionDidChange:previousTraitCollection];
     if (@available(iOS 13.0, *)) {
-        if ([self.traitCollection hasDifferentColorAppearanceComparedToTraitCollection:previousTraitCollection]) {
-            [self.layer setNeedsDisplay];
-            [self.layer displayIfNeeded];
-        }
+        [self.layer setNeedsDisplay];
+        [self.layer displayIfNeeded];
     }
 }
 
