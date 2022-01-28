@@ -503,6 +503,8 @@ static dispatch_queue_t YYLabelGetReleaseQueue() {
 - (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
     [super traitCollectionDidChange:previousTraitCollection];
     if (@available(iOS 13.0, *)) {
+        NSAttributedString *text = self.attributedText;
+        self.attributedText = text;
         [self.layer setNeedsDisplay];
         [self.layer displayIfNeeded];
     }
